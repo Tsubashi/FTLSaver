@@ -96,7 +96,7 @@
 
 -(BOOL)stringIsOK:(NSString*)string
 {
-  NSCharacterSet *s = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"];
+  NSCharacterSet *s = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_."];
   s = [s invertedSet];
   NSRange r = [string rangeOfCharacterFromSet:s];
   return (r.location == NSNotFound);
@@ -141,6 +141,8 @@
             [self doSaveOverwrite:name];
           }
         }];
+      } else {
+        [self doSaveOverwrite:name];
       }
     }
   } else {

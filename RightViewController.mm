@@ -1,4 +1,5 @@
 #import "RightViewController.h"
+#import "UIBAlertView.h"
 
 
 @interface RightViewController()
@@ -36,7 +37,7 @@
     self.overwriteCell = [[UITableViewCell alloc]init];
     self.overwriteCell.textLabel.text = @"Overwrite existing file";
     self.overwriteCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
-    self.overwriteCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.overwriteCell.accessoryType = UITableViewCellAccessoryNone;
     
     
     // construct save game cell, section 0, row 2
@@ -157,6 +158,7 @@
         };
       break;
       case 1:
+        [tableView deselectRowAtIndexPath:indexPath animated:false];
         [gameSaver doRestore:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
       break;
     }
