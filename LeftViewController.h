@@ -1,12 +1,7 @@
 #import<UIKit/UIKit.h>
+#import "GameSaver.h"
 
 @interface LeftViewController: UIViewController {
-  UILabel       *helloLabel;
-  NSFileManager *fileManager;
-  NSString      *savePath;
-  NSString      *userCode;
-  NSString      *archivePath;
-  NSString      *saveGamePath;
+  GameSaver *gameSaver;
 }
-//-(IBAction)showUserList:(id)sender;
 @end

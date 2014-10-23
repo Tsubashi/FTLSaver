@@ -7,4 +7,7 @@
   NSString      *archivePath;
   NSString      *saveGamePath;
 }
+
+- (void)doSave:(NSString*)name overwrite:(BOOL)shouldOverwrite;
+- (void)doRestore:(NSString*)name;
 @end

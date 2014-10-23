@@ -1,12 +1,5 @@
-//
-//  RightViewController.m
-//  StaticCells
-//
-//  Created by Brian Mancini on 9/28/14.
-//  Copyright (c) 2014 iOSExamples. All rights reserved.
-//
-
 #import "RightViewController.h"
+
 
 @interface RightViewController()
 
@@ -26,10 +19,13 @@
 {
     [super loadView];
     
+    // Set up our game saver
+    gameSaver = [[GameSaver alloc] init];
+    
     // set the title
     self.title = @"Save Files";
 
-    // construct first name cell, section 0, row 0
+    // construct save name cell, section 0, row 0
     self.saveNameCell = [[UITableViewCell alloc] init];
     self.saveNameCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
     self.saveNameText = [[UITextField alloc]initWithFrame:CGRectInset(self.saveNameCell.contentView.bounds, 15, 0)];
@@ -134,7 +130,7 @@
         [tableView deselectRowAtIndexPath:indexPath animated:false];
         
         // Save the file
-        
+        [gameSaver doSave:self.saveNameText.text overwrite:(self.overwriteCell.accessoryType = UITableViewCellAccessoryCheckmark)];
       }
             
     }

@@ -107,16 +107,34 @@
     [fileManager removeItemAtPath:saveGamePath error:NULL];
   }
 }
-- (void)doSave:(NSString*)name {
+- (void)doSave:(NSString*)name overwrite:(BOOL)shouldOverwrite
+{
   if([self stringIsOK:name]) {
-    NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
-    if ([fileManager fileExistsAtPath:archiveSavePath]) {
-      [fileManager removeItemAtPath:archiveSavePath error:NULL];
-    }
-    if ([fileManager copyItemAtPath:saveGamePath toPath:archiveSavePath  error:NULL]) {
-      [self alertStuff:@"Saved successfully"];
+    if ([fileManager fileExistsAtPath:saveGamePath]==NO) {
+      [self alertStuff:@"No save game found!"];
     } else {
-      [self alertStuff:@"Failed to save!"];
+      NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
+      if ([fileManager fileExistsAtPath:archiveSavePath]) {
+        if (shouldOverwrite) {
+          [fileManager removeItemAtPath:archiveSavePath error:NULL];
+        } else {
+          [UIAlertView showWithTitle:@"Warning!"
+                    message:@"A savegame by that name already exists. Would you like to overwrite it?"
+          cancelButtonTitle:@"Cancel"
+          otherButtonTitles:@[@"Overwrite"]
+                    tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                        if (buttonIndex == [alertView cancelButtonIndex]) {
+                            return;
+                        }
+                    }
+          ];
+        }
+      }
+      if ([fileManager copyItemAtPath:saveGamePath toPath:archiveSavePath  error:NULL]) {
+	[self alertStuff:@"Saved successfully"];
+      } else {
+	[self alertStuff:@"Failed to save!"];
+      }
     }
   } else {
     [self alertStuff:@"Name can only contain A-Z,0-9, and _ charaters. Please pick a new name."];
