@@ -8,6 +8,8 @@
   NSString      *saveGamePath;
 }
 
-- (void)doSave:(NSString*)name overwrite:(BOOL)shouldOverwrite;
+- (void)doSave:(NSString*)name;
+- (void)doSaveOverwrite:(NSString*)name;
 - (void)doRestore:(NSString*)name;
+- (void)doRestoreOverwrite:(NSString*)name;
 @end

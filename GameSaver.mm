@@ -107,7 +107,7 @@
     [fileManager removeItemAtPath:saveGamePath error:NULL];
   }
 }
-- (void)doSave:(NSString*)name overwrite:(BOOL)shouldOverwrite
+- (void)doSave:(NSString*)name 
 {
   if([self stringIsOK:name]) {
     if ([fileManager fileExistsAtPath:saveGamePath]==NO) {
@@ -115,28 +115,33 @@
     } else {
       NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
       if ([fileManager fileExistsAtPath:archiveSavePath]) {
-        if (!shouldOverwrite) {
-          UIBAlertView *alert =[[UIBAlertView alloc] initWithTitle:@"Warning!" 
-              message:@"A savegame by that name already exists. Would you like to overwrite it?"
-              cancelButtonTitle:@"Cancel"
-              otherButtonTitles:@"Overwrite",nil
-            ];
-          [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-            if (didCancel) {
-              return;
-            }
-          }];
-        }
-        [fileManager removeItemAtPath:archiveSavePath error:NULL];
-      }
-      if ([fileManager copyItemAtPath:saveGamePath toPath:archiveSavePath  error:NULL]) {
-	[self alertStuff:@"Saved successfully"];
-      } else {
-	[self alertStuff:@"Failed to save!"];
+        UIBAlertView *alert =[[UIBAlertView alloc] initWithTitle:@"Warning!" 
+            message:@"A savegame by that name already exists. Would you like to overwrite it?"
+            cancelButtonTitle:@"Cancel"
+            otherButtonTitles:@"Overwrite",nil
+          ];
+        [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+          if (!didCancel) {
+            [self doSaveOverwrite:name];
+          }
+        }];
       }
     }
   } else {
     [self alertStuff:@"Name can only contain A-Z,0-9, and _ charaters. Please pick a new name."];
+  }
+}
+
+- (void)doSaveOverwrite:(NSString*)name 
+{
+  NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
+  if ([fileManager fileExistsAtPath:archiveSavePath]) {
+    [fileManager removeItemAtPath:archiveSavePath error:NULL];
+  }
+  if ([fileManager copyItemAtPath:saveGamePath toPath:archiveSavePath  error:NULL]) {
+    [self alertStuff:@"Saved successfully"];
+  } else {
+    [self alertStuff:@"Failed to save!"];
   }
 }
 
@@ -149,9 +154,7 @@
               otherButtonTitles:@"Overwrite",nil
             ];
           [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
-            if (didCancel) {
-              return;
-            } else {
+            if (!didCancel) {
               [self doRestoreOverwrite:name];
             }
           }];

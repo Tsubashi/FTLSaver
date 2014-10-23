@@ -29,7 +29,7 @@
     self.saveNameCell = [[UITableViewCell alloc] init];
     self.saveNameCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
     self.saveNameText = [[UITextField alloc]initWithFrame:CGRectInset(self.saveNameCell.contentView.bounds, 15, 0)];
-    self.saveNameText.placeholder = @"First Name";
+    self.saveNameText.placeholder = @"Save Game Name";
     [self.saveNameCell addSubview:self.saveNameText];
     
     // construct overwrite cell, section 0, row 1
@@ -44,9 +44,7 @@
     self.saveGameCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
     self.saveGameCell.textLabel.text = @"Save Current Game";
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    self.documentsDirectory = [paths objectAtIndex:0];
-    self.filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:self.documentsDirectory  error:nil];
+    [self updateFileList];
 }
 
 //#pragma Table View Data Source
@@ -87,7 +85,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         }
-        cell.textLabel.text = [self.documentsDirectory stringByAppendingPathComponent:[self.filePathsArray objectAtIndex:indexPath.row]];
+        cell.textLabel.text = [self.filePathsArray objectAtIndex:indexPath.row];
         
           return cell;
     };
@@ -130,10 +128,20 @@
         [tableView deselectRowAtIndexPath:indexPath animated:false];
         
         // Save the file
-        [gameSaver doSave:self.saveNameText.text overwrite:(self.overwriteCell.accessoryType = UITableViewCellAccessoryCheckmark)];
+        if(self.overwriteCell.accessoryType == UITableViewCellAccessoryNone) {
+          [gameSaver doSave:self.saveNameText.text];
+        } else {
+          [gameSaver doSaveOverwrite:self.saveNameText.text];
+        }
+        [self updateFileList];
+        [self.tableView reloadData];
       }
             
     }
+}
+- (void)updateFileList
+{
+  self.filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:@"/var/mobile/Library/FTLsaver/saves" error:nil];
 }
 
 @end

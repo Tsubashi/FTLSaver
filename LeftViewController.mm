@@ -82,7 +82,7 @@
   // TAG_SAVEGAME_NAME
   if(alertView.tag == TAG_SAVEGAME_NAME && buttonIndex == 1) {
     //Get new name from user
-    [gameSaver doSave:[[alertView textFieldAtIndex:0] text] overwrite:NO];
+    [gameSaver doSave:[[alertView textFieldAtIndex:0] text]];
   } else 
   //------------------------------------------------------------------------
   // TAG_RESTOREGAME_NAME
