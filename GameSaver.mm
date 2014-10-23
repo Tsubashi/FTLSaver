@@ -107,13 +107,29 @@
     [fileManager removeItemAtPath:saveGamePath error:NULL];
   }
 }
+- (BOOL)deleteSaveFile:(NSString*)name
+{
+  NSString* path = [[NSString alloc] initWithFormat:@"%@/%@",archivePath,[self checkExtention:name]];
+  if ([fileManager fileExistsAtPath:path]) {
+    return [fileManager removeItemAtPath:path error:NULL];
+  }
+  return YES;
+}
+- (NSString*)checkExtention:(NSString*)name
+{
+  if ([[name pathExtension] isEqualToString:@"sav"]) {
+    return name;
+  } else {
+    return [[NSString alloc] initWithFormat:@"%@.sav",name];
+  }
+}
 - (void)doSave:(NSString*)name 
 {
   if([self stringIsOK:name]) {
     if ([fileManager fileExistsAtPath:saveGamePath]==NO) {
       [self alertStuff:@"No save game found!"];
     } else {
-      NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
+      NSString *archiveSavePath = [NSString stringWithFormat:@"%@/%@",archivePath,[self checkExtention:name]];
       if ([fileManager fileExistsAtPath:archiveSavePath]) {
         UIBAlertView *alert =[[UIBAlertView alloc] initWithTitle:@"Warning!" 
             message:@"A savegame by that name already exists. Would you like to overwrite it?"
@@ -134,7 +150,7 @@
 
 - (void)doSaveOverwrite:(NSString*)name 
 {
-  NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
+  NSString *archiveSavePath = [NSString stringWithFormat:@"%@/%@",archivePath,[self checkExtention:name]];
   if ([fileManager fileExistsAtPath:archiveSavePath]) {
     [fileManager removeItemAtPath:archiveSavePath error:NULL];
   }
@@ -169,7 +185,7 @@
   //Declare savegamedata
   NSData *saveGameData = nil;
   //Build copy path
-  NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
+  NSString *archiveSavePath = [NSString stringWithFormat:@"%@/%@",archivePath,[self checkExtention:name]];
   if (!([fileManager fileExistsAtPath:archiveSavePath])) {
     [self alertStuff:@"No savegame exists by that name."];
     return;

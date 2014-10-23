@@ -8,6 +8,7 @@
   NSString      *saveGamePath;
 }
 
+- (BOOL)deleteSaveFile:(NSString*)name;
 - (void)doSave:(NSString*)name;
 - (void)doSaveOverwrite:(NSString*)name;
 - (void)doRestore:(NSString*)name;

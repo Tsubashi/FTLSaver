@@ -72,22 +72,23 @@
     switch(indexPath.section)
     {
         case 0:
-        switch(indexPath.row)
-        {
+          switch(indexPath.row)
+          {
             case 0: return self.saveNameCell;      // section 0, row 0 is the first name
             case 1: return self.overwriteCell;     // section 0, row 1 is the overwrite option
             case 2: return self.saveGameCell;      // section 0, row 2 is the last name
-        }
+          }
+        break;
         case 1: 
-        static NSString *CellIdentifier = @"newCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+          static NSString *CellIdentifier = @"newCell";
+          UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-        if (cell == nil) {
+          if (cell == nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        }
-        cell.textLabel.text = [self.filePathsArray objectAtIndex:indexPath.row];
-        
+          }
+          cell.textLabel.text = [self.filePathsArray objectAtIndex:indexPath.row];
           return cell;
+        break;
     };
     return nil;
 }
@@ -105,38 +106,59 @@
     return nil;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+  switch(indexPath.section)
+  {
+    case 0:return NO;
+    case 1:return YES;
+  };
+  return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+  [gameSaver deleteSaveFile:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+  [self updateFileList];
+  [self.tableView reloadData];
+}
 
 // Configure the row selection code for any cells that you want to customize the row selection
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Handle social cell selection to toggle checkmark
-    if(indexPath.section == 0) {
-      switch(indexPath.row)
-      {
-        case 1:
-        // deselect row
-        [tableView deselectRowAtIndexPath:indexPath animated:false];
-        
-        // toggle check mark
-        if(self.overwriteCell.accessoryType == UITableViewCellAccessoryNone) {
-          self.overwriteCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        } else {
-          self.overwriteCell.accessoryType = UITableViewCellAccessoryNone;
-        }
-        case 2:
-        // deselect row
-        [tableView deselectRowAtIndexPath:indexPath animated:false];
-        
-        // Save the file
-        if(self.overwriteCell.accessoryType == UITableViewCellAccessoryNone) {
-          [gameSaver doSave:self.saveNameText.text];
-        } else {
-          [gameSaver doSaveOverwrite:self.saveNameText.text];
-        }
-        [self updateFileList];
-        [self.tableView reloadData];
-      }
+    switch(indexPath.section)
+    {
+      case 0:
+        switch(indexPath.row)
+        {
+          case 1:
+            // deselect row
+            [tableView deselectRowAtIndexPath:indexPath animated:false];
             
+            // toggle check mark
+            if(self.overwriteCell.accessoryType == UITableViewCellAccessoryNone) {
+              self.overwriteCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+              self.overwriteCell.accessoryType = UITableViewCellAccessoryNone;
+            }
+          break;
+          case 2:
+            // deselect row
+            [tableView deselectRowAtIndexPath:indexPath animated:false];
+            
+            // Save the file
+            if(self.overwriteCell.accessoryType == UITableViewCellAccessoryNone) {
+              [gameSaver doSave:self.saveNameText.text];
+            } else {
+              [gameSaver doSaveOverwrite:self.saveNameText.text];
+            }
+            [self updateFileList];
+            [self.tableView reloadData];
+          break;
+        };
+      break;
+      case 1:
+        [gameSaver doRestore:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+      break;
     }
 }
 - (void)updateFileList
