@@ -6,7 +6,7 @@ export SDKVERSION = 7.0
 include theos/makefiles/common.mk
 
 APPLICATION_NAME = FTLSaver
-FTLSaver_FILES = main.m FTLSaver.mm RightViewController.mm LeftViewController.mm UIAlertView+Blocks.m GameSaver.mm
+FTLSaver_FILES = main.m FTLSaver.mm RightViewController.mm LeftViewController.mm UIBAlertView.m GameSaver.mm
 FTLSaver_FRAMEWORKS = Foundation UIKit CoreGraphics
 
 include $(THEOS_MAKE_PATH)/application.mk

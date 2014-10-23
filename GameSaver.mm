@@ -1,5 +1,5 @@
 #import "GameSaver.h"
-#import "UIAlertView+Blocks.h"
+#import "UIBAlertView.h"
 
 
 //Todo list
@@ -115,20 +115,19 @@
     } else {
       NSString *archiveSavePath = [NSString stringWithFormat:@"/%@/%@.sav",archivePath,name];
       if ([fileManager fileExistsAtPath:archiveSavePath]) {
-        if (shouldOverwrite) {
-          [fileManager removeItemAtPath:archiveSavePath error:NULL];
-        } else {
-          [UIAlertView showWithTitle:@"Warning!"
-                    message:@"A savegame by that name already exists. Would you like to overwrite it?"
-          cancelButtonTitle:@"Cancel"
-          otherButtonTitles:@[@"Overwrite"]
-                    tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                        if (buttonIndex == [alertView cancelButtonIndex]) {
-                            return;
-                        }
-                    }
-          ];
+        if (!shouldOverwrite) {
+          UIBAlertView *alert =[[UIBAlertView alloc] initWithTitle:@"Warning!" 
+              message:@"A savegame by that name already exists. Would you like to overwrite it?"
+              cancelButtonTitle:@"Cancel"
+              otherButtonTitles:@"Overwrite",nil
+            ];
+          [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+            if (didCancel) {
+              return;
+            }
+          }];
         }
+        [fileManager removeItemAtPath:archiveSavePath error:NULL];
       }
       if ([fileManager copyItemAtPath:saveGamePath toPath:archiveSavePath  error:NULL]) {
 	[self alertStuff:@"Saved successfully"];
@@ -144,18 +143,18 @@
 - (void)doRestore:(NSString*)name {
   if([self stringIsOK:name]) {
     if ([fileManager fileExistsAtPath:saveGamePath]) {
-      [UIAlertView showWithTitle:@"Warning!"
-                   message:@"A savegame is currently in progress. Are you sure you would like to overwrite? All progress on the current savegame will be lost."
-         cancelButtonTitle:@"Cancel"
-         otherButtonTitles:@[@"Overwrite"]
-                  tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                      if (buttonIndex == [alertView cancelButtonIndex]) {
-                          [self alertStuff:@"Cancelled"];
-                      } else if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Overwrite"]) {
-                          [self doRestoreOverwrite:name];
-                      }
-                  }];
-      return;
+       UIBAlertView *alert =[[UIBAlertView alloc] initWithTitle:@"Warning!" 
+              message:@"A savegame is currently in progress. Are you sure you would like to overwrite? All progress on the current savegame will be lost."
+              cancelButtonTitle:@"Cancel"
+              otherButtonTitles:@"Overwrite",nil
+            ];
+          [alert showWithDismissHandler:^(NSInteger selectedIndex, NSString *selectedTitle, BOOL didCancel) {
+            if (didCancel) {
+              return;
+            } else {
+              [self doRestoreOverwrite:name];
+            }
+          }];
     } else {
       [self doRestoreOverwrite:name];
     }
