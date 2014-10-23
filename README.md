@@ -5,7 +5,7 @@ An FTL Game Saver Application for iPad.
 
 Description
 ------------
-This is a spare-time project designed for me to dip my feet into the pool of Obj-C coding while fufilling a purpose useful to at least myself. The code itself is likely wretched, and design priciples flawed, but the point is to have fun. Anything useful that result is just a bonus
+This is a spare-time project designed for me to dip my feet into the pool of Obj-C coding while fufilling a purpose useful to at least myself. The code itself is likely wretched, and design priciples flawed, but the point is to have fun. Anything useful that results is just a bonus
 
 Caveats and Oddities
 --------------------
