@@ -1,5 +1,5 @@
 export THEOS=/var/theos
-export ARCHS = armv7 arm64
+export ARCHS = armv6 armv7 arm64
 export TARGET = iphone:clang:7.0:7.0
 export SDKVERSION = 7.0
 
