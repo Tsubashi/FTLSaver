@@ -2,6 +2,34 @@
 #import "UIBAlertView.h"
 
 
+#define APPS_PATH @"/var/mobile/Applications"
+
+NSArray *findAppContainersWithName(NSString *name) {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSMutableArray *containers = [[NSMutableArray alloc] init];
+    NSString *app = [name stringByAppendingString:@".app"];
+
+    for(NSString *appContainer in [fileManager contentsOfDirectoryAtPath:APPS_PATH error:nil]) {
+        NSString *appContainerPath = [APPS_PATH stringByAppendingPathComponent:appContainer];
+        if([fileManager fileExistsAtPath:[appContainerPath stringByAppendingPathComponent:app]]) {
+            [containers addObject:appContainerPath];
+        }
+    }
+
+    return containers;
+}
+
+NSString *findAppContainer(NSString *name, NSString *bundleID) {
+    NSArray *appContainers = findAppContainersWithName(name);
+    NSString *app = [name stringByAppendingString:@".app"];
+    for(NSString *appContainer in appContainers) {
+        NSBundle *bundle = [NSBundle bundleWithPath:[appContainer stringByAppendingPathComponent:app]];
+        if([[bundle bundleIdentifier] isEqualToString:bundleID]) {
+            return appContainer;
+        }
+    }
+    return nil;
+}
 //Todo list
 // * Auto-kill FTL before a restore. 
 
@@ -14,28 +42,7 @@
     
     //------------------------------------------------------------------------
     //Find the App Directory
-    /* It would be nice if this worked, but it does not. Too many items.
-    {
-      NSDirectoryEnumerator *dirEnum = [fileManager enumeratorAtPath:@"/var/mobile/Applications"];
-      NSString *file;
-      BOOL foundIt=NO;
-      while ((file = [dirEnum nextObject])) {
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@",savePath,file];
-        NSRange range = [filePath rangeOfString:@"FTL.app"]; 
-        if (!(range.location == NSNotFound )) {
-          NSUInteger max = NSMaxRange(range);
-          savePath = [NSString stringWithFormat:@"%@/Library/Application Support/players",[filePath substringWithRange:NSMakeRange(0,max)]];
-          foundIt=YES;
-          [self alertStuff:[NSString stringWithFormat:@"Game Directory: %@",savePath]];
-          break;
-        }
-      }
-      if (!(foundIt)) {
-        [self alertStuff:@"Game Directory not found. Is it installed?"];
-      }
-    } 
-    */
-    savePath = @"/var/mobile/AppLinks/FTL.app/Library/Application Support/players";
+    savePath = [[NSString alloc] initWithFormat:@"%@/Library/Application Support/players",findAppContainer(@"FTL", @"com.ftlgame.FTL")];
     if (!([fileManager fileExistsAtPath:savePath])) {
       [self alertStuff:@"Game Directory not found. Is it installed?"];
     }
@@ -62,10 +69,10 @@
         [self alertStuff:@"No users found. Try playing a game first!"];
         userCode = @"Nobody";
       } else if ([UserList count] > 1) { //Multiple users detected
-        [self alertStuff:@"Multiple users found!"];
-        for(NSString* user in UserList) {
-          [self alertStuff:user];
-        }
+        [self alertStuff:@"Multiple users found! Not sure what to do..."];
+        //for(NSString* user in UserList) {
+        //  [self alertStuff:user];
+        //}
         userCode = @"Nobody";
       } else { // Only one user detected
         userCode = [UserList firstObject];
