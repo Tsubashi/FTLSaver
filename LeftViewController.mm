@@ -7,23 +7,27 @@
 - (void)loadView 
 {
   self.view = [[[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]] autorelease];
-  self.view.backgroundColor = [UIColor whiteColor];
+  self.view.backgroundColor = [UIColor clearColor];
   
   gameSaver = [[GameSaver alloc] init];
   
   //------------------------------------------------------------------------
   // Save Game Button
   UIButton*saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  saveButton.frame = CGRectMake(110, 200, 150, 35);
-  [saveButton setTitle:@"Save Current Game" forState:UIControlStateNormal];
+  saveButton.frame = CGRectMake(25, 200, 250, 35);
+  saveButton.backgroundColor = [UIColor clearColor];
+  [saveButton setTitle:@"Save Current Game by Name" forState:UIControlStateNormal];
+  [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
   [saveButton addTarget:self action:@selector(saveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:saveButton];
   
   //------------------------------------------------------------------------
   // Restore Game Button
   UIButton*restoreButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  restoreButton.frame = CGRectMake(110, 250, 150, 35);
-  [restoreButton setTitle:@"Restore a Game" forState:UIControlStateNormal];
+  restoreButton.frame = CGRectMake(25, 250, 250, 35);
+  restoreButton.backgroundColor = [UIColor clearColor];
+  [restoreButton setTitle:@"Restore a Game by Name" forState:UIControlStateNormal];
+  [restoreButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
   [restoreButton addTarget:self action:@selector(restoreButtonPressed) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:restoreButton];
 
@@ -67,7 +71,7 @@
 
 -(void)restoreButtonPressed
 {
-  UIAlertView*alert = [[UIAlertView alloc] initWithTitle:@"Save Current Game" message:@"What game would you like to restore?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+  UIAlertView*alert = [[UIAlertView alloc] initWithTitle:@"Restore Game" message:@"What game would you like to restore?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
   alert.alertViewStyle = UIAlertViewStylePlainTextInput;
   alert.tag = TAG_RESTOREGAME_NAME;
   UITextField * alertTextField = [alert textFieldAtIndex:0];
