@@ -1,9 +1,9 @@
 export THEOS=/var/theos
 export ARCHS = armv6 armv7 arm64
-export TARGET = iphone:clang:7.0:7.0
-export SDKVERSION = 7.0
+export TARGET = iphone:clang:7.1:7.1
+export SDKVERSION = 7.1
 
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 APPLICATION_NAME = FTLSaver
 FTLSaver_FILES = main.m FTLSaver.mm RightViewController.mm LeftViewController.mm UIBAlertView.m GameSaver.mm

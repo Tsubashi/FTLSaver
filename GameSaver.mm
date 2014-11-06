@@ -2,15 +2,19 @@
 #import "UIBAlertView.h"
 
 
-#define APPS_PATH @"/var/mobile/Applications"
-
 NSArray *findAppContainersWithName(NSString *name) {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSMutableArray *containers = [[NSMutableArray alloc] init];
     NSString *app = [name stringByAppendingString:@".app"];
-
-    for(NSString *appContainer in [fileManager contentsOfDirectoryAtPath:APPS_PATH error:nil]) {
-        NSString *appContainerPath = [APPS_PATH stringByAppendingPathComponent:appContainer];
+    NSString *apps_path = @"/var/mobile/Applications";
+    
+    if([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
+      [apps_path release];
+      apps_path = @"/var/mobile/Containers/Data/Application";
+    } 
+    
+    for(NSString *appContainer in [fileManager contentsOfDirectoryAtPath:apps_path error:nil]) {
+        NSString *appContainerPath = [apps_path stringByAppendingPathComponent:appContainer];
         if([fileManager fileExistsAtPath:[appContainerPath stringByAppendingPathComponent:app]]) {
             [containers addObject:appContainerPath];
         }
@@ -40,11 +44,21 @@ NSString *findAppContainer(NSString *name, NSString *bundleID) {
   if (self = [super init]) {
     fileManager = [NSFileManager defaultManager];
     
+    NSString *apps_path = @"/var/mobile/Applications";
+    
+    if([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
+      [apps_path release];
+      apps_path = @"/var/mobile/Containers/Data/Application";
+    }
+    
+    [self alertStuff:apps_path];
     //------------------------------------------------------------------------
     //Find the App Directory
     savePath = [[NSString alloc] initWithFormat:@"%@/Library/Application Support/players",findAppContainer(@"FTL", @"com.ftlgame.FTL")];
     if (!([fileManager fileExistsAtPath:savePath])) {
       [self alertStuff:@"Game Directory not found. Is it installed?"];
+      [self release];
+      return nil;
     }
     
 
@@ -67,13 +81,15 @@ NSString *findAppContainer(NSString *name, NSString *bundleID) {
       // Determine if we have what we need, or if we need the user to take action.
       if ([UserList count] == 0) { //No users detected
         [self alertStuff:@"No users found. Try playing a game first!"];
-        userCode = @"Nobody";
+        [self release];
+        return nil;
       } else if ([UserList count] > 1) { //Multiple users detected
         [self alertStuff:@"Multiple users found! Not sure what to do..."];
         //for(NSString* user in UserList) {
         //  [self alertStuff:user];
         //}
-        userCode = @"Nobody";
+        [self release];
+        return nil;
       } else { // Only one user detected
         userCode = [UserList firstObject];
       }
