@@ -44,14 +44,6 @@ NSString *findAppContainer(NSString *name, NSString *bundleID) {
   if (self = [super init]) {
     fileManager = [NSFileManager defaultManager];
     
-    NSString *apps_path = @"/var/mobile/Applications";
-    
-    if([[[UIDevice currentDevice] systemVersion] compare:@"8.0" options:NSNumericSearch] != NSOrderedAscending) {
-      [apps_path release];
-      apps_path = @"/var/mobile/Containers/Data/Application";
-    }
-    
-    [self alertStuff:apps_path];
     //------------------------------------------------------------------------
     //Find the App Directory
     savePath = [[NSString alloc] initWithFormat:@"%@/Library/Application Support/players",findAppContainer(@"FTL", @"com.ftlgame.FTL")];
