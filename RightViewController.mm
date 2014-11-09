@@ -33,6 +33,7 @@
   self.saveNameCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
   self.saveNameText = [[UITextField alloc]initWithFrame:CGRectInset(self.saveNameCell.contentView.bounds, 15, 0)];
   self.saveNameText.placeholder = @"Insert Name Here";
+  self.saveNameText.delegate = self;
   [self.saveNameCell addSubview:self.saveNameText];
   
   // construct overwrite cell, section 0, row 1
@@ -53,6 +54,12 @@
   self.refreshCell.textLabel.text = @"Refresh List";
   
   [self updateFileList];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 //#pragma Table View Data Source

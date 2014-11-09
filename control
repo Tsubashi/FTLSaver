@@ -1,6 +1,6 @@
 Package: com.scottlearn.FTLSaver
 Name: FTLSaver
-Version: 1.0.2
+Version: 1.1.0-alpha
 Architecture: iphoneos-arm
 Description: An application for saving FTL games.
 Maintainer: cscott <8th.realm@gmail.com>
