@@ -18,11 +18,11 @@
   if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
     _viewController = [[UISplitViewController alloc] init];
     ((UISplitViewController *)_viewController).viewControllers = [NSArray arrayWithObjects:left, right, nil];
-    ((UISplitViewController *)_viewController).view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"purple_nebula"]];
   } else {
     _viewController = [[UINavigationController alloc] initWithRootViewController:right];
     ((UINavigationController *)_viewController).navigationBar.hidden = YES;
   }
+  _viewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"purple_nebula"]];
   _window.rootViewController = _viewController;
   //[_window addSubview:_viewController.view];
   [_window makeKeyAndVisible];

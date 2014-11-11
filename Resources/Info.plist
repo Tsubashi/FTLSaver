@@ -9,15 +9,12 @@
       iPhoneOS
     );
     UIDeviceFamily = (
-      2
+      1
+    , 2
     );
     CFBundleVersion = 1.0;
     DTPlatformName = iphoneos;
     DTSDKName = iphoneos3.0;
     LSRequiresIPhoneOS = 1;
     MinimumOSVersion = 3.0;
-    UISupportedInterfaceOrientations = (
-      UIInterfaceOrientationLandscapeRight
-    , UIInterfaceOrientationLandscapeLeft 
-    );
 }
