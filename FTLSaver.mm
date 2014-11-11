@@ -3,7 +3,7 @@
 
 @interface FTLSaverApplication: UIApplication <UIApplicationDelegate> {
   UIWindow *_window;
-  UISplitViewController *_viewController;
+  UIViewController *_viewController;
 }
 @property (nonatomic, retain) UIWindow *window;
 @end
@@ -15,9 +15,14 @@
   LeftViewController* left   = [[LeftViewController alloc] init];
   RightViewController* right = [[RightViewController alloc] initWithStyle:UITableViewStyleGrouped];
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  _viewController = [[UISplitViewController alloc] init];
-  _viewController.viewControllers = [NSArray arrayWithObjects:left, right, nil];
-  _viewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"purple_nebula"]];
+  if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    _viewController = [[UISplitViewController alloc] init];
+    ((UISplitViewController *)_viewController).viewControllers = [NSArray arrayWithObjects:left, right, nil];
+    ((UISplitViewController *)_viewController).view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"purple_nebula"]];
+  } else {
+    _viewController = [[UINavigationController alloc] initWithRootViewController:right];
+    ((UINavigationController *)_viewController).navigationBar.hidden = YES;
+  }
   _window.rootViewController = _viewController;
   //[_window addSubview:_viewController.view];
   [_window makeKeyAndVisible];
