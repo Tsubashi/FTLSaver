@@ -16,5 +16,9 @@
     DTPlatformName = iphoneos;
     DTSDKName = iphoneos3.0;
     LSRequiresIPhoneOS = 1;
-    MinimumOSVersion = 3.0;
+    MinimumOSVersion = 7.0;
+    UISupportedInterfaceOrientations = (
+      UIInterfaceOrientationLandscapeRight
+    , UIInterfaceOrientationLandscapeLeft 
+    );
 }
