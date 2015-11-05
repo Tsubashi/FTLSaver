@@ -17,14 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    _viewController = [[MainViewController alloc] init];
-    _viewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"purple_nebula"]];
-    _window.rootViewController = _viewController;
-    //[_window addSubview:_viewController.view];
-    [_window makeKeyAndVisible];
-    return YES;
+  _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+  _viewController = [[MainViewController alloc] init];
+  UIImageView *bg =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"purple_nebula"]];
+  bg.contentMode = UIViewContentModeTopLeft;
+  _viewController.tableView.backgroundView = bg;
+  _window.rootViewController = _viewController;
+  [_window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

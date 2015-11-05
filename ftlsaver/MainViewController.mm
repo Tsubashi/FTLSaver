@@ -22,7 +22,7 @@
   self.view.backgroundColor = [UIColor clearColor];
   
   // Set up our game saver
-  gameSaver = [[GameSaver alloc] init];
+  gameSaver = [[GameSaver alloc] initWithViewController:self];
   
   // set the title
   self.title = @"Save Files";
@@ -30,7 +30,7 @@
   // construct save name cell, section 0, row 0
   self.saveNameCell = [[UITableViewCell alloc] init];
   self.saveNameCell.backgroundColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.5f];
-  self.saveNameText = [[UITextField alloc]initWithFrame:CGRectInset(self.saveNameCell.contentView.bounds, 15, 0)];
+  self.saveNameText = [[UITextField alloc]initWithFrame:CGRectInset(self.saveNameCell.contentView.bounds,15.0f, 0)];
   self.saveNameText.placeholder = @"Insert Name Here";
   [self.saveNameCell addSubview:self.saveNameText];
   
@@ -52,6 +52,22 @@
   self.refreshCell.textLabel.text = @"Refresh List";
   
   [self updateFileList];
+  [self traitCollectionDidChange:self.traitCollection];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+{
+  [super traitCollectionDidChange: previousTraitCollection];
+  CGRect f = self.saveNameText.frame;
+  if(self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassCompact) {
+    self.tableView.layoutMargins = UIEdgeInsetsMake(20.0f, 0.0f, 0.0f, 0.0f);
+    f.origin.x = 15;
+    self.saveNameText.frame = f;
+  } else {
+    self.tableView.layoutMargins = UIEdgeInsetsMake(20.0f, 250.0f, 0.0f, 0.0f);
+    f.origin.x = 250;
+    self.saveNameText.frame = f;
+  }
 }
 
 //#pragma Table View Data Source

@@ -9,6 +9,7 @@
   UIViewController *viewControllerForDialogs;
 }
 
+-(id) initWithViewController:(UIViewController*)view;
 - (BOOL)deleteSaveFile:(NSString*)name;
 - (void)doSave:(NSString*)name;
 - (void)doSaveOverwrite:(NSString*)name;

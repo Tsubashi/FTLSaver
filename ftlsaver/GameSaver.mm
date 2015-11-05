@@ -105,12 +105,12 @@ NSString *findAppContainer(NSString *name, NSString *bundleID) {
 
 -(void)alertStuff:(NSString*)text
 {
-    UIAlertController*theAlert = [UIAlertController alertControllerWithTitle:@"Alert!" message:text preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+  UIAlertController*theAlert = [UIAlertController alertControllerWithTitle:@"Alert!" message:text preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {}];
     
-    [theAlert addAction:defaultAction];
-    [viewControllerForDialogs presentViewController:theAlert animated:YES completion:nil];
+  [theAlert addAction:defaultAction];
+  [viewControllerForDialogs presentViewController:theAlert animated:YES completion:nil];
 }
 
 -(BOOL)stringIsOK:(NSString*)string
