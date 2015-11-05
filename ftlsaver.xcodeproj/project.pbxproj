@@ -3,16 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6A518F091BEBCCA400C2DABE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F081BEBCCA400C2DABE /* main.m */; };
 		6A518F0C1BEBCCA400C2DABE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F0B1BEBCCA400C2DABE /* AppDelegate.m */; };
-		6A518F0F1BEBCCA400C2DABE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F0E1BEBCCA400C2DABE /* ViewController.m */; };
 		6A518F121BEBCCA400C2DABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F101BEBCCA400C2DABE /* Main.storyboard */; };
 		6A518F141BEBCCA400C2DABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F131BEBCCA400C2DABE /* Assets.xcassets */; };
 		6A518F171BEBCCA400C2DABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F151BEBCCA400C2DABE /* LaunchScreen.storyboard */; };
+		6A518F441BEBCDC100C2DABE /* GameSaver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F1F1BEBCDC100C2DABE /* GameSaver.mm */; };
+		6A518F481BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F241BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf */; };
+		6A518F5B1BEBCDC100C2DABE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F391BEBCDC100C2DABE /* Info.plist */; };
+		6A518F5C1BEBCDC100C2DABE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3A1BEBCDC100C2DABE /* iTunesArtwork.png */; };
+		6A518F5D1BEBCDC100C2DABE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */; };
+		6A518F5E1BEBCDC100C2DABE /* purple_nebula.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3C1BEBCDC100C2DABE /* purple_nebula.png */; };
+		6A518F5F1BEBCDC100C2DABE /* purple_nebula@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3D1BEBCDC100C2DABE /* purple_nebula@2x.png */; };
+		6A518F601BEBCDC100C2DABE /* purple_nebula@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3E1BEBCDC100C2DABE /* purple_nebula@2x~ipad.png */; };
+		6A518F611BEBCDC100C2DABE /* purple_nebula~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3F1BEBCDC100C2DABE /* purple_nebula~ipad.png */; };
+		6A518F621BEBCDC100C2DABE /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F411BEBCDC100C2DABE /* MainViewController.mm */; };
+		6A518F661BEBD67300C2DABE /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F651BEBD67300C2DABE /* UIAlertController+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +30,28 @@
 		6A518F081BEBCCA400C2DABE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A518F0A1BEBCCA400C2DABE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A518F0B1BEBCCA400C2DABE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6A518F0D1BEBCCA400C2DABE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6A518F0E1BEBCCA400C2DABE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6A518F111BEBCCA400C2DABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A518F131BEBCCA400C2DABE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A518F161BEBCCA400C2DABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A518F181BEBCCA400C2DABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A518F1E1BEBCDC100C2DABE /* GameSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaver.h; sourceTree = "<group>"; };
+		6A518F1F1BEBCDC100C2DABE /* GameSaver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameSaver.mm; sourceTree = "<group>"; };
+		6A518F211BEBCDC100C2DABE /* Floppy_Disk_Save_clip_art.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Floppy_Disk_Save_clip_art.svg; sourceTree = "<group>"; };
+		6A518F221BEBCDC100C2DABE /* FTLSaver.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FTLSaver.svg; sourceTree = "<group>"; };
+		6A518F231BEBCDC100C2DABE /* purple_nebula@2x.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "purple_nebula@2x.xcf"; sourceTree = "<group>"; };
+		6A518F241BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "purple_nebula@2x~ipad.xcf"; sourceTree = "<group>"; };
+		6A518F391BEBCDC100C2DABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6A518F3A1BEBCDC100C2DABE /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		6A518F3C1BEBCDC100C2DABE /* purple_nebula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_nebula.png; sourceTree = "<group>"; };
+		6A518F3D1BEBCDC100C2DABE /* purple_nebula@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple_nebula@2x.png"; sourceTree = "<group>"; };
+		6A518F3E1BEBCDC100C2DABE /* purple_nebula@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple_nebula@2x~ipad.png"; sourceTree = "<group>"; };
+		6A518F3F1BEBCDC100C2DABE /* purple_nebula~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purple_nebula~ipad.png"; sourceTree = "<group>"; };
+		6A518F401BEBCDC100C2DABE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		6A518F411BEBCDC100C2DABE /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
+		6A518F641BEBD67300C2DABE /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		6A518F651BEBD67300C2DABE /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
+		6AF540A71BEBDC1C00CBD273 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +84,17 @@
 		6A518F061BEBCCA400C2DABE /* ftlsaver */ = {
 			isa = PBXGroup;
 			children = (
+				6AF540A41BEBDC1C00CBD273 /* Package */,
+				6A518F1E1BEBCDC100C2DABE /* GameSaver.h */,
+				6A518F1F1BEBCDC100C2DABE /* GameSaver.mm */,
+				6A518F641BEBD67300C2DABE /* UIAlertController+Blocks.h */,
+				6A518F651BEBD67300C2DABE /* UIAlertController+Blocks.m */,
+				6A518F201BEBCDC100C2DABE /* graphics */,
+				6A518F251BEBCDC100C2DABE /* Resources */,
+				6A518F401BEBCDC100C2DABE /* MainViewController.h */,
+				6A518F411BEBCDC100C2DABE /* MainViewController.mm */,
 				6A518F0A1BEBCCA400C2DABE /* AppDelegate.h */,
 				6A518F0B1BEBCCA400C2DABE /* AppDelegate.m */,
-				6A518F0D1BEBCCA400C2DABE /* ViewController.h */,
-				6A518F0E1BEBCCA400C2DABE /* ViewController.m */,
 				6A518F101BEBCCA400C2DABE /* Main.storyboard */,
 				6A518F131BEBCCA400C2DABE /* Assets.xcassets */,
 				6A518F151BEBCCA400C2DABE /* LaunchScreen.storyboard */,
@@ -79,6 +112,55 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A518F201BEBCDC100C2DABE /* graphics */ = {
+			isa = PBXGroup;
+			children = (
+				6A518F211BEBCDC100C2DABE /* Floppy_Disk_Save_clip_art.svg */,
+				6A518F221BEBCDC100C2DABE /* FTLSaver.svg */,
+				6A518F231BEBCDC100C2DABE /* purple_nebula@2x.xcf */,
+				6A518F241BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf */,
+			);
+			path = graphics;
+			sourceTree = "<group>";
+		};
+		6A518F251BEBCDC100C2DABE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A518F391BEBCDC100C2DABE /* Info.plist */,
+				6A518F3A1BEBCDC100C2DABE /* iTunesArtwork.png */,
+				6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */,
+				6A518F3C1BEBCDC100C2DABE /* purple_nebula.png */,
+				6A518F3D1BEBCDC100C2DABE /* purple_nebula@2x.png */,
+				6A518F3E1BEBCDC100C2DABE /* purple_nebula@2x~ipad.png */,
+				6A518F3F1BEBCDC100C2DABE /* purple_nebula~ipad.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6AF540A41BEBDC1C00CBD273 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				6AF540A51BEBDC1C00CBD273 /* Applications */,
+				6AF540A61BEBDC1C00CBD273 /* DEBIAN */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		6AF540A51BEBDC1C00CBD273 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		6AF540A61BEBDC1C00CBD273 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				6AF540A71BEBDC1C00CBD273 /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,6 +171,7 @@
 				6A518F001BEBCCA400C2DABE /* Sources */,
 				6A518F011BEBCCA400C2DABE /* Frameworks */,
 				6A518F021BEBCCA400C2DABE /* Resources */,
+				6AF540A91BEBDC5C00CBD273 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -114,7 +197,7 @@
 				};
 			};
 			buildConfigurationList = 6A518EFF1BEBCCA400C2DABE /* Build configuration list for PBXProject "ftlsaver" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,20 +221,47 @@
 			files = (
 				6A518F171BEBCCA400C2DABE /* LaunchScreen.storyboard in Resources */,
 				6A518F141BEBCCA400C2DABE /* Assets.xcassets in Resources */,
+				6A518F601BEBCDC100C2DABE /* purple_nebula@2x~ipad.png in Resources */,
+				6A518F481BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf in Resources */,
+				6A518F5E1BEBCDC100C2DABE /* purple_nebula.png in Resources */,
+				6A518F5B1BEBCDC100C2DABE /* Info.plist in Resources */,
 				6A518F121BEBCCA400C2DABE /* Main.storyboard in Resources */,
+				6A518F5C1BEBCDC100C2DABE /* iTunesArtwork.png in Resources */,
+				6A518F611BEBCDC100C2DABE /* purple_nebula~ipad.png in Resources */,
+				6A518F5D1BEBCDC100C2DABE /* iTunesArtwork@2x.png in Resources */,
+				6A518F5F1BEBCDC100C2DABE /* purple_nebula@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AF540A91BEBDC5C00CBD273 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A518F001BEBCCA400C2DABE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A518F0F1BEBCCA400C2DABE /* ViewController.m in Sources */,
+				6A518F661BEBD67300C2DABE /* UIAlertController+Blocks.m in Sources */,
 				6A518F0C1BEBCCA400C2DABE /* AppDelegate.m in Sources */,
+				6A518F621BEBCDC100C2DABE /* MainViewController.mm in Sources */,
 				6A518F091BEBCCA400C2DABE /* main.m in Sources */,
+				6A518F441BEBCDC100C2DABE /* GameSaver.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +328,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Debug;
 		};
@@ -256,6 +367,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
 			};
 			name = Release;
 		};
@@ -263,10 +375,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = ftlsaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scottlearn.ftlsaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = Eri;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = "";
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
 		};
@@ -274,10 +395,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = ftlsaver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.scottlearn.ftlsaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = Eri;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevPath = "";
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
 		};
@@ -300,6 +430,7 @@
 				6A518F1D1BEBCCA400C2DABE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
