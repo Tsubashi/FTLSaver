@@ -18,6 +18,7 @@
 		6A518F5C1BEBCDC100C2DABE /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3A1BEBCDC100C2DABE /* iTunesArtwork.png */; };
 		6A518F5D1BEBCDC100C2DABE /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */; };
 		6A518F621BEBCDC100C2DABE /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A518F411BEBCDC100C2DABE /* MainViewController.mm */; };
+		6AD65DCC1BEC20A500378E10 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD65DCB1BEC20A500378E10 /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		6A518F401BEBCDC100C2DABE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		6A518F411BEBCDC100C2DABE /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
+		6AD65DCB1BEC20A500378E10 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		6AF540A71BEBDC1C00CBD273 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		8B6C1CE959854EBE0D55A256 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 		6A518F251BEBCDC100C2DABE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6AD65DCB1BEC20A500378E10 /* Icon.png */,
 				6A518F3A1BEBCDC100C2DABE /* iTunesArtwork.png */,
 				6A518F3B1BEBCDC100C2DABE /* iTunesArtwork@2x.png */,
 			);
@@ -231,6 +234,7 @@
 				6A518F481BEBCDC100C2DABE /* purple_nebula@2x~ipad.xcf in Resources */,
 				6A518F121BEBCCA400C2DABE /* Main.storyboard in Resources */,
 				6A518F5C1BEBCDC100C2DABE /* iTunesArtwork.png in Resources */,
+				6AD65DCC1BEC20A500378E10 /* Icon.png in Resources */,
 				6A518F5D1BEBCDC100C2DABE /* iTunesArtwork@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +434,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = Eri;
+				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = "";
@@ -452,7 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = Eri;
+				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevPath = "";
